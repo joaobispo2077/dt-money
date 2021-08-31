@@ -13,10 +13,19 @@ export function NewTransactionModal({
   onRequestClose,
 }: NewTransactionModalProps) {
   return (
-    <Container>
-      <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
+    <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
+      <Container>
         <h2>Cadastrar transação</h2>
-      </Modal>
-    </Container>
+
+        <input type="text" placeholder="Título" />
+        <input type="number" placeholder="Preço" />
+
+        {/* <button>Entrada</button>
+        <button>Saída</button> */}
+
+        <input type="text" placeholder="Categoria" />
+        <button type="submit">Cadastrar</button>
+      </Container>
+    </Modal>
   );
 }
