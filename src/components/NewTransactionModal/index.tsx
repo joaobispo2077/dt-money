@@ -13,7 +13,12 @@ export function NewTransactionModal({
   onRequestClose,
 }: NewTransactionModalProps) {
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      overlayClassName="react-modal-overlay"
+      className="react-modal-content"
+    >
       <Container>
         <h2>Cadastrar transação</h2>
 
@@ -22,8 +27,8 @@ export function NewTransactionModal({
 
         {/* <button>Entrada</button>
         <button>Saída</button> */}
-
         <input type="text" placeholder="Categoria" />
+
         <button type="submit">Cadastrar</button>
       </Container>
     </Modal>
