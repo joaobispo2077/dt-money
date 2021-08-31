@@ -11,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
     --text-title: #363f5f;
     --text-body: #969cb3;
 
+    --input-background: #E7E9EE;
+    --input-border: #D7D7D7;
+
     --background: #F0F2F5;
     --shape: #FFFFFF;
   }
@@ -79,6 +82,21 @@ const GlobalStyle = createGlobalStyle`
 
     position: relative;
     border-radius: 0.25rem;
+  }
+
+  .react-modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+
+    border: none;
+    background: transparent;
+
+    transition: filter 0.2s ease-in-out;
+
+    &:hover {
+      filter: brightness(80%);
+    }
   }
 `;
 
