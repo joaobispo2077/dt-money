@@ -14,7 +14,7 @@ createServer({
         {
           id: 1,
           title: 'Desenvolvimento de website',
-          amount: 'R$ 12000',
+          amount: '12000',
           category: 'Desenvolvimento',
           createdAt: new Date('2021-02-12 09:20:00'),
           type: 'deposit',
@@ -22,7 +22,7 @@ createServer({
         {
           id: 2,
           title: 'Aluguel',
-          amount: 'R$ 1100',
+          amount: '1100',
           category: 'Casa',
           createdAt: new Date('2021-02-14 11:20:00'),
           type: 'withdraw',
