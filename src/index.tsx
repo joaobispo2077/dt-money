@@ -17,7 +17,7 @@ createServer({
           amount: 'R$ 12000',
           category: 'Desenvolvimento',
           createdAt: new Date('2021-02-12 09:20:00'),
-          type: 'income',
+          type: 'deposit',
         },
         {
           id: 2,
@@ -25,7 +25,7 @@ createServer({
           amount: 'R$ 1100',
           category: 'Casa',
           createdAt: new Date('2021-02-14 11:20:00'),
-          type: 'outcome',
+          type: 'withdraw',
         },
       ],
     });

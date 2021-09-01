@@ -22,7 +22,7 @@ export function NewTransactionModal({
   isOpen,
   onRequestClose,
 }: NewTransactionModalProps) {
-  const [transactionType, setTransactionType] = useState('income');
+  const [transactionType, setTransactionType] = useState('deposit');
 
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState(0);
@@ -77,18 +77,18 @@ export function NewTransactionModal({
 
           <TransactionButtonWrapper>
             <TransactionRadioButton
-              isActive={transactionType === 'income'}
+              isActive={transactionType === 'deposit'}
               type="button"
-              onClick={() => setTransactionType('income')}
+              onClick={() => setTransactionType('deposit')}
               activeColor="green"
             >
               <img src={incomeImg} alt="Entrada" />
               <span>Entrada</span>
             </TransactionRadioButton>
             <TransactionRadioButton
-              isActive={transactionType === 'outcome'}
+              isActive={transactionType === 'withdraw'}
               type="button"
-              onClick={() => setTransactionType('outcome')}
+              onClick={() => setTransactionType('withdraw')}
               activeColor="red"
             >
               <img src={outcomeImg} alt="Saída" />

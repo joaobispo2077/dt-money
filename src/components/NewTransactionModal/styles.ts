@@ -56,13 +56,13 @@ export const TransactionButtonWrapper = styled.div`
   gap: 0.5rem;
 
   margin: 1rem 0;
-  /* .income:hover,
-  .income.active {
+  /* .deposit:hover,
+  .deposit.active {
     background: #12a454;
   }
 
-  .outcome:hover,
-  .outcome.active {
+  .withdraw:hover,
+  .withdraw.active {
     background: #12a454;
   } */
 `;
