@@ -1,5 +1,9 @@
 import Modal from 'react-modal';
-import { Container, TransactionTypeWrapper } from './styles';
+import {
+  Container,
+  TransactionButtonWrapper,
+  TransactionRadioButton,
+} from './styles';
 
 import closeImg from '../../assets/close.svg';
 import incomeImg from '../../assets/income.svg';
@@ -41,24 +45,26 @@ export function NewTransactionModal({
           <input type="text" placeholder="Título" />
           <input type="number" placeholder="Preço" />
 
-          <TransactionTypeWrapper>
-            <button
-              className="income active"
+          <TransactionButtonWrapper>
+            <TransactionRadioButton
+              isActive={transactionType === 'income'}
               type="button"
               onClick={() => setTransactionType('income')}
+              activeColor="green"
             >
               <img src={incomeImg} alt="Entrada" />
               <span>Entrada</span>
-            </button>
-            <button
-              className="outcome active"
+            </TransactionRadioButton>
+            <TransactionRadioButton
+              isActive={transactionType === 'outcome'}
               type="button"
               onClick={() => setTransactionType('outcome')}
+              activeColor="red"
             >
               <img src={outcomeImg} alt="Saída" />
               <span>Saída</span>
-            </button>
-          </TransactionTypeWrapper>
+            </TransactionRadioButton>
+          </TransactionButtonWrapper>
 
           <input type="text" placeholder="Categoria" />
 

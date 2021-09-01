@@ -1,4 +1,4 @@
-import { darken } from 'polished';
+import { darken, transparentize } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.form`
@@ -50,43 +50,12 @@ export const Container = styled.form`
   }
 `;
 
-export const TransactionTypeWrapper = styled.div`
+export const TransactionButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 0.5rem;
 
   margin: 1rem 0;
-
-  button {
-    width: 50%;
-    height: 4rem;
-
-    border-radius: 0.25rem;
-    border: 1px solid var(--input-border);
-    background: var(--background);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
-    transition: border-color 0.2s;
-
-    img {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-
-    span {
-      font-size: 1rem;
-      color: var(--text-title);
-    }
-
-    &:hover {
-      border-color: ${darken(0.1, '#d7d7d7')};
-    }
-  }
-
   /* .income:hover,
   .income.active {
     background: #12a454;
@@ -96,4 +65,47 @@ export const TransactionTypeWrapper = styled.div`
   .outcome.active {
     background: #12a454;
   } */
+`;
+
+export type TransactionRadioButtonProps = {
+  isActive: boolean;
+  activeColor: 'green' | 'red';
+};
+
+const colorByBackground = {
+  green: '#33CC95',
+  red: '#E52E4D',
+};
+
+export const TransactionRadioButton = styled.button<TransactionRadioButtonProps>`
+  width: 50%;
+  height: 4rem;
+
+  border-radius: 0.25rem;
+  border: 1px solid var(--input-border);
+  background: ${({ isActive, activeColor }) =>
+    isActive
+      ? transparentize(0.9, colorByBackground[activeColor])
+      : 'var(--background)'}; //
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  transition: border-color 0.2s;
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  span {
+    font-size: 1rem;
+    color: var(--text-title);
+  }
+
+  &:hover {
+    border-color: ${darken(0.1, '#d7d7d7')};
+  }
 `;
