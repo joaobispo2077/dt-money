@@ -6,7 +6,35 @@ import { TransactionsContext } from '../../contexts/TransactionsContext';
 import { useContext } from 'react';
 
 export function Summary() {
-  const transactions = useContext(TransactionsContext);
+  const { transactions } = useContext(TransactionsContext);
+
+  const summary = transactions.reduce(
+    (acc, transaction) => {
+      if (transaction.type === 'deposit') {
+        acc.deposits += transaction.amount;
+        acc.total += transaction.amount;
+      }
+
+      if (transaction.type === 'withdraw') {
+        acc.withdraws += transaction.amount;
+        acc.total -= transaction.amount;
+      }
+
+      return acc;
+    },
+    {
+      deposits: 0,
+      withdraws: 0,
+      total: 0,
+    },
+  );
+
+  const formatNumberToCurrency = (currency: number) => {
+    return Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(currency);
+  };
 
   console.log('transactions', transactions);
   return (
