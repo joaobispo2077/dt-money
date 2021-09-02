@@ -16,13 +16,14 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
   }, []);
 
   const createTransaction = async (data: TransactionInput) => {
-    const transaction = {
+    const newTransaction = {
       ...data,
-      id: transactions.length - 1,
       createdAt: String(new Date()),
     };
 
-    await api.post('/transactions', transaction);
+    const response = await api.post('/transactions', newTransaction);
+    const { transaction } = response.data;
+
     setTransactions((previousTransaction) =>
       previousTransaction.concat(transaction),
     );

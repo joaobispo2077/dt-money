@@ -1,5 +1,4 @@
 import { FormEvent, useContext, useState } from 'react';
-import { api } from '../../services/api';
 import Modal from 'react-modal';
 import {
   Container,
