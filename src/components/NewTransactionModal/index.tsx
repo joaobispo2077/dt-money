@@ -28,8 +28,15 @@ export function NewTransactionModal({
   const [transactionType, setTransactionType] = useState('deposit');
 
   const [title, setTitle] = useState('');
-  const [price, setPrice] = useState(0);
+  const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState('');
+
+  const cleanFieds = () => {
+    setTitle('');
+    setAmount(0);
+    setCategory('');
+    setTransactionType('deposit');
+  };
 
   const handleCreateNewTransaction = async (
     event: FormEvent<HTMLFormElement>,
@@ -38,12 +45,15 @@ export function NewTransactionModal({
 
     const transaction = {
       title,
-      amount: price,
+      amount: amount,
       category,
       type: transactionType,
     };
 
     await createTransaction(transaction);
+
+    cleanFieds();
+    onRequestClose();
   };
 
   return (
@@ -74,8 +84,8 @@ export function NewTransactionModal({
           <input
             type="number"
             placeholder="Preço"
-            value={price}
-            onChange={(event) => setPrice(Number(event.target.value))}
+            value={amount}
+            onChange={(event) => setAmount(Number(event.target.value))}
           />
 
           <TransactionButtonWrapper>
