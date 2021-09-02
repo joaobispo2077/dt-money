@@ -44,21 +44,21 @@ export function Summary() {
           <p>Entradas</p>
           <img src={incomeImg} alt="Entradas" />
         </header>
-        <strong>R$ 1200,00</strong>
+        <strong>{formatNumberToCurrency(summary.deposits)}</strong>
       </div>
       <div>
         <header>
           <p>Saídas</p>
           <img src={outcomeImg} alt="Saídas" />
         </header>
-        <strong>R$ 500,00</strong>
+        <strong>- {formatNumberToCurrency(summary.withdraws)}</strong>
       </div>
       <div className="highlight-background">
         <header>
           <p>Total</p>
           <img src={totalImg} alt="Total" />
         </header>
-        <strong>R$ 700,00</strong>
+        <strong>{formatNumberToCurrency(summary.total)}</strong>
       </div>
     </Container>
   );
