@@ -9,4 +9,13 @@ export interface Transaction {
   createdAt: string;
 }
 
-export const TransactionsContext = createContext<Transaction[]>([]);
+export type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>;
+
+export interface TransactionsContextData {
+  transactions: Transaction[];
+  createTransaction: (transaction: TransactionInput) => void;
+}
+
+export const TransactionsContext = createContext<TransactionsContextData>(
+  {} as TransactionsContextData,
+);
